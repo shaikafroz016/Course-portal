@@ -74,7 +74,7 @@ address{
 
 }
 .nav-link{
- filter: invert(100%);
+ color:red;
 }
 .navbar {
   background-color: rgba(255, 255, 255, 0.15); 
