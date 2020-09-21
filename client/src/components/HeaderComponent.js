@@ -100,7 +100,7 @@ class Header extends Component {
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/home">
+                                    <NavLink className="nav-link " to="/home">
                                         Home
                                     </NavLink>
                                 </NavItem>
@@ -145,12 +145,12 @@ class Header extends Component {
                                             </DropdownToggle>
                                             <DropdownMenu className="hello" right >
                                                 <DropdownItem>
-                                                <NavLink className="nav-link  text-dark"  to="/mycourses">
+                                                <NavLink className="nav-link  "  to="/mycourses">
                                                     My Courses
                                                 </NavLink>
                                                 </DropdownItem>
                                                 <DropdownItem>
-                                                <NavLink className="nav-link  text-dark"  to="/Courses">
+                                                <NavLink className="nav-link  "  to="/Courses">
                                                     All Courses
                                                 </NavLink>
                                                 </DropdownItem>
@@ -190,7 +190,7 @@ class Header extends Component {
                 <Jumbotron>
                     <div className="container ">
                         <div className="row row-header">
-                            <div className="col-12 col-sm-6">
+                            <div className="col-12 col-sm-6 course">
                                 <h1 >Course-S</h1>
                                 <h4 >The online Course portal for learner to grab Courses for free!</h4>
                                 <p >Happy Learning</p>
