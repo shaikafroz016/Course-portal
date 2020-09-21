@@ -1,0 +1,1 @@
+export const baseUrl = 'https://developer-course-s.herokuapp.com/';
