@@ -3,8 +3,9 @@ import { Card, CardImg,CardTitle,Button} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
-import { FadeTransform,Fade } from 'react-animation-components';
+import { FadeTransform } from 'react-animation-components';
 import MyLeaderBoardAd from './addcomponent'
+import Fade from 'react-reveal/Fade';
 
 
 const ColoredLine = ({ color }) => (
@@ -27,7 +28,7 @@ const ColoredLine = ({ color }) => (
             }}
             fadeProps={{
                 enterOpacity: 100,
-            }}><Fade in={false} exitOpacity={100}>
+            }}><Fade left>
            
                 <Card className="shadow-lg p-3 mb-5 bg-white rounded">
                     <CardImg height="200px" src={baseUrl + dish.image} alt={dish.name} />

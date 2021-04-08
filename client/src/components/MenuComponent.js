@@ -1,17 +1,28 @@
 import React from 'react';
-import { Card, CardImg,  Breadcrumb, BreadcrumbItem, CardText } from 'reactstrap';
+import { Card, CardImg,  Breadcrumb, BreadcrumbItem, CardTitle ,CardBody,CardText} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import ReadMoreReact from 'read-more-react';
+import Fade from 'react-reveal/Fade';
+
 
     function RenderMenuItem({ dish, onClick }) {
         return(
+        <Fade left>
             <Card>
                 <Link to={`/Courses/${dish._id}`} >
-                    <CardImg  height="250px" src={baseUrl + dish.image} alt={dish.name} />
-                    <h4><CardText >{dish.name}</CardText></h4>
+                    <CardImg  height="300px" src={baseUrl + dish.image} alt={dish.name} />                    
                 </Link>
-            </Card>
+                <CardBody>
+                            <h3><CardTitle>{dish.name}</CardTitle></h3>
+                            <CardText>
+                                <ReadMoreReact  text={dish.description}
+                                 readMoreText="click here to read more"/>
+                                </CardText>
+                        </CardBody>
+                    </Card>
+                    </Fade>
         );
     }
 
@@ -19,7 +30,7 @@ import { baseUrl } from '../shared/baseUrl';
 
         const menu = props.dishes.dishes.map((dish) => {
             return (
-                <div key={dish._id} className="col-12 col-md-4  sks">
+                <div key={dish._id} className="col-12 col-md-6  sks">
                     <RenderMenuItem dish={dish} />
                 </div>
             );

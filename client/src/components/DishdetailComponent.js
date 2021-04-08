@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 import { Control, LocalForm } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
-import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import { FadeTransform,  Stagger } from 'react-animation-components';
+import Fade from 'react-reveal/Fade';
+
 
 
 const ColoredLine = ({ color }) => (
@@ -46,12 +48,14 @@ const ColoredLine = ({ color }) => (
                     </FadeTransform>
                 </div>
                 <div className="col-12 col-md-5 m-1">
+                    <Fade left>
                     <Card>
                         <CardBody>
                             <h3><CardTitle>{dish.name}</CardTitle></h3>
                             <CardText>{dish.description}</CardText>
                         </CardBody>
                     </Card>
+                    </Fade>
             </div>
             </div>
             );
@@ -67,7 +71,7 @@ const ColoredLine = ({ color }) => (
                         <Stagger in>
                             {comments.map((comment) => {
                                 return (
-                                    <Fade in key={comment._id}>
+                                    <Fade left>
                                         <li>
                                         <p>{comment.comment}</p>
                                         <p>{comment.rating} stars</p>

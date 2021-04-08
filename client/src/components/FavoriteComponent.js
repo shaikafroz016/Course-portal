@@ -5,10 +5,13 @@ import {LocalForm} from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 import { Loading } from './LoadingComponent';
+import Fade from 'react-reveal/Fade';
+
 
 function RenderMenuItem({ dish, deleteFavorite , onClick}) {
     return(
         <div className="col-12 col-md m-1">
+            <Fade left>
         <Media tag="li">
             <Card className="col-sm-6">
                 <Link to={`/mycourses/${dish._id}`} >
@@ -26,6 +29,7 @@ function RenderMenuItem({ dish, deleteFavorite , onClick}) {
                 <CommentForm dishId={dish._id} deleteFavorite={deleteFavorite} dish={dish}/>
             </Media>
         </Media>
+        </Fade>
         </div>
         
     );
