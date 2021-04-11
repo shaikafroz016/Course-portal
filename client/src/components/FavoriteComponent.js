@@ -89,6 +89,18 @@ const Favorites = (props) => {
                 <div className="row">
                     <Loading />
                 </div>
+                <div className="row">
+                        <Loading />
+                    </div>
+                    <div className="row">
+                        <Loading />
+                    </div>
+                    <div className="row">
+                        <Loading />
+                    </div>
+                    <div className="row">
+                        <Loading />
+                    </div>
             </div>
         );
     }

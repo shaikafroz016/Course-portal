@@ -42,6 +42,18 @@ import Fade from 'react-reveal/Fade';
                     <div className="row">
                         <Loading />
                     </div>
+                    <div className="row">
+                        <Loading />
+                    </div>
+                    <div className="row">
+                        <Loading />
+                    </div>
+                    <div className="row">
+                        <Loading />
+                    </div>
+                    <div className="row">
+                        <Loading />
+                    </div>
                 </div>
             );
         }

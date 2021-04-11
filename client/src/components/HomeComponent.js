@@ -65,6 +65,9 @@ const ColoredLine = ({ color }) => (
                     <div className="row">
                         <Loading />
                     </div>
+                    <div className="row">
+                        <Loading />
+                    </div>
                 </div>
             );
         }
