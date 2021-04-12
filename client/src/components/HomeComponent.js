@@ -57,16 +57,15 @@ const ColoredLine = ({ color }) => (
             return(
                 <div className="container">
                     <div className="row">
-                        <Loading />
-                    </div>
-                    <div className="row">
-                        <Loading />
-                    </div>
-                    <div className="row">
-                        <Loading />
-                    </div>
-                    <div className="row">
-                        <Loading />
+                        <div className="col-4 col-md-4">
+                            <Loading />
+                        </div>
+                        <div className="col-4 col-md-4">
+                            <Loading />
+                        </div>
+                        <div className="col-4 col-md-4">
+                            <Loading />
+                        </div>
                     </div>
                 </div>
             );
