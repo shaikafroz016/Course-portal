@@ -5,6 +5,7 @@ import { Comments } from './comments';
 import { Promotions } from './promotions';
 import { Leaders } from './leaders';
 import { favorites } from './favorites';
+import {users} from './users';
 import { Auth } from './auth';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
@@ -19,6 +20,7 @@ export const ConfigureStore = () => {
             leaders: Leaders,
             auth: Auth,
             favorites,
+            users,
             ...createForms({
                 feedback: InitialFeedback
             })

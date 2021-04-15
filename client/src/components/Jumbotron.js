@@ -29,7 +29,7 @@ class Jumbot extends Component {
         return(
             <React.Fragment>
                 <Jumbotron>
-                    <div className="container ">
+                    <div className="container downc">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
                                 <h1 >Course-S</h1>

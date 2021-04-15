@@ -82,8 +82,8 @@ const ColoredLine = ({ color }) => (
         }
         else
             return (
-                <div>
-                <Jumbot />
+                <div>                
+                    <Jumbot />
                 <div className="container">
                     <div className="row">
                         <div className="col-12 ">

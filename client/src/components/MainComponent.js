@@ -12,7 +12,7 @@ import Instructor from './InstructorComponent';
 import Signup from './SignupComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { postComment, postFeedback, fetchDishes, fetchComments,fetchUrls, fetchPromos, fetchLeaders, loginUser,SignupUser, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
+import { postComment, postFeedback, fetchDishes, fetchComments,fetchUrls, fetchPromos, fetchLeaders, loginUser,SignupUser,fetchUsers, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Four from './404/404';
@@ -44,6 +44,7 @@ const mapDispatchToProps = (dispatch) => ({
   loginUser: (creds) => dispatch(loginUser(creds)),
   logoutUser: () => dispatch(logoutUser()),
   fetchFavorites: () => dispatch(fetchFavorites()),
+  fetchUsers:()=>dispatch(fetchUsers()),
   fetchUrls:() => {dispatch(fetchUrls())},
   postFavorite: (dishId) => dispatch(postFavorite(dishId)),
   deleteFavorite: (dishId) => dispatch(deleteFavorite(dishId))
@@ -57,6 +58,7 @@ class Main extends Component {
     this.props.fetchPromos();
     this.props.fetchLeaders();
     this.props.fetchFavorites();
+    this.props.fetchUsers();
     this.props.fetchUrls();
     
   }
@@ -126,20 +128,19 @@ class Main extends Component {
     );
 
     const SecureRoute = ({ component: Component, ...rest }) => (
-      <Route {...rest} render={(props) => (
-        this.props.auth.isAuthenticated
-          ? <Redirect to={{
-            pathname: '/home',
-            state: { from: props.location }
-          }} />
-          :<Component {...props} /> 
-          
+        <Route {...rest} render={(props) => (
+        this.props.auth.isAdmin
+          ? <Component {...props} />
+          : <Redirect to={{
+              pathname: '/home',
+              state: { from: props.location }
+            }} />
       )} />
     );
 
     const AdminRoute = ({ component: Component, ...rest }) => (
       <Route {...rest} render={(props) => (
-        this.props.auth.user.admin ===true
+         this.props.auth.isAdmin
           ?
           <Redirect to={{
             pathname: '/home',
@@ -172,7 +173,7 @@ class Main extends Component {
               <Route exact path="/" component={() => <Home dishes={this.props.dishes} />} />
               <Route path="/home" component={() => <Home dishes={this.props.dishes} />} />
               <Route exact path='/aboutus' component={() => <About />} />
-              <Route exact path="/Courses" component={() => <Menu dishes={this.props.dishes} />} />
+              <Route exact path="/Courses" component={() => <Menu dishes={this.props.dishes}  />} />
               <Route exact path="/Instructors" component={() => <Instructor leaders={this.props.leaders}/> }/>
               <Route exact path="/Courses/:dishId" component={DishWithId} />
               <PrivateRoute exact path="/mycourses" component={() => <Favorites favorites={this.props.favorites} deleteFavorite={this.props.deleteFavorite} />} />

@@ -45,6 +45,49 @@ export const postComment = (dishId, rating, comment) => (dispatch) => {
     .catch(error => { console.log('Post comments ', error.message);
         alert('Your comment could not be posted\nError: '+ error.message); })
 }
+export const fetchUsers = () => (dispatch) => {
+    dispatch(usersLoading(true));
+
+    const bearer = 'Bearer ' + localStorage.getItem('token');
+
+    return fetch(baseUrl + 'users', {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': bearer
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            return response;
+        }
+        else {
+            var error = new Error('Error ' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+        }
+    },
+    error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+    .then(response => response.json())
+    .then(users => dispatch(addUsers(users)))
+    .catch(error => dispatch(usersfaield(error.message)));
+}
+
+export const usersLoading = () => ({
+    type: ActionTypes.USERS_LOADING
+});
+
+export const usersfaield = (errmess) => ({
+    type: ActionTypes.USERS_FAILD,
+    payload: errmess
+});
+export const addUsers = (users) => ({
+    type: ActionTypes.ADD_USER,
+    payload: users
+});
+
 export const fetchDishes = () => (dispatch) => {
     dispatch(dishesLoading(true));
 
@@ -286,6 +329,7 @@ export const loginUser = (creds) => (dispatch) => {
         } else {
             var error = new Error('Error ' + response.status + ': ' + response.statusText);
             error.response = response;
+            alert('Username or password is incorrect')
             throw error;
         }
         },
