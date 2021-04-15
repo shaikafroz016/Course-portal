@@ -40,13 +40,13 @@ import Fade from 'react-reveal/Fade';
             return(
                 <div className="container">
                     <div className="row">
-                        <div className="col-4 col-md-4">
+                        <div className="col-12 col-md-4">
                             <Loading />
                         </div>
-                        <div className="col-4 col-md-4">
+                        <div className="col-12 col-md-4">
                             <Loading />
                         </div>
-                        <div className="col-4 col-md-4">
+                        <div className="col-12 col-md-4">
                             <Loading />
                         </div>
                 </div>
