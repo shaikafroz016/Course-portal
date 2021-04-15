@@ -65,7 +65,7 @@ import { FadeTransform} from 'react-animation-components';
         }
         else if (props.dish != null)        
             return (
-                <div className="container ">
+                <div className="container downc">
                     <div className="row ">
                         <Breadcrumb>
                             <BreadcrumbItem><Link to='/mycourses'>My Courses</Link></BreadcrumbItem>

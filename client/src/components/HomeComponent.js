@@ -6,6 +6,7 @@ import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform } from 'react-animation-components';
 import MyLeaderBoardAd from './addcomponent'
 import Fade from 'react-reveal/Fade';
+import Jumbot from './Jumbotron';
 
 
 const ColoredLine = ({ color }) => (
@@ -81,6 +82,8 @@ const ColoredLine = ({ color }) => (
         }
         else
             return (
+                <div>
+                <Jumbot />
                 <div className="container">
                     <div className="row">
                         <div className="col-12 ">
@@ -93,6 +96,7 @@ const ColoredLine = ({ color }) => (
                         <MyLeaderBoardAd />
 
                     </div>
+                </div>
                 </div>
             );
     }

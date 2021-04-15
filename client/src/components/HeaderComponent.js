@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem,
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label, UncontrolledDropdown,
     DropdownToggle,
@@ -7,6 +7,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
     DropdownItem,
      } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+
 
 
 class Header extends Component {
@@ -187,26 +188,6 @@ class Header extends Component {
                             
                         </Collapse>
                 </Navbar>
-                <Jumbotron>
-                    <div className="container ">
-                        <div className="row row-header">
-                            <div className="col-12 col-sm-6 course">
-                                <h1 >Course-S</h1>
-                                <h4 >The online Course portal for learner to grab Courses for free!</h4>
-                                <p >Happy Learning</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="arrow" onClick={this.handleOnClick} >
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                            
-                            </div>
-                </Jumbotron>
-                <div ref={this.myDivToFocus}>
-                    
-                </div>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
                     <ModalBody>

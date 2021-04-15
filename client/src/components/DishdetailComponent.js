@@ -176,7 +176,7 @@ const ColoredLine = ({ color }) => (
         }
         else if (props.dish != null)        
             return (
-                <div className="container">
+                <div className="container downc">
                     <div className="row">
                         <Breadcrumb>
                             <BreadcrumbItem><Link to='/Courses'>All Courses</Link></BreadcrumbItem>
