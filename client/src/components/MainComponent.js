@@ -12,11 +12,11 @@ import Instructor from './InstructorComponent';
 import Signup from './SignupComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { postComment, postFeedback, fetchDishes, fetchComments,fetchUrls, fetchPromos, fetchLeaders, loginUser,SignupUser,fetchUsers, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
+import { postComment, postFeedback, fetchDishes, fetchComments,fetchUrls, fetchPromos, fetchLeaders, loginUser,SignupUser,sendFile,fetchUsers, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Four from './404/404';
-import admin from './adminComponent';
+import Admin from './adminComponent';
 import { FadeTransform } from 'react-animation-components';
 
 const mapStateToProps = state => {
@@ -41,6 +41,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchLeaders: () => dispatch(fetchLeaders()),
   postFeedback: (feedback) => dispatch(postFeedback(feedback)),
   SignupUser: (feedback) => dispatch(SignupUser(feedback)),
+  sendFile: (feedback) => dispatch(sendFile(feedback)),
   loginUser: (creds) => dispatch(loginUser(creds)),
   logoutUser: () => dispatch(logoutUser()),
   fetchFavorites: () => dispatch(fetchFavorites()),
@@ -140,15 +141,12 @@ class Main extends Component {
 
     const AdminRoute = ({ component: Component, ...rest }) => (
       <Route {...rest} render={(props) => (
-         this.props.auth.isAdmin
-          ?
-          <Redirect to={{
-            pathname: '/home',
-            state: { from: props.location }
-          }} />
-          :
-          <Component {...props} />
-          
+        this.props.auth.isAuthenticated && this.props.auth.isAdmin
+          ? <Component {...props} />
+          : <Redirect to={{
+              pathname: '/home',
+              state: { from: props.location }
+            }} />
       )} />
     );
 
@@ -180,7 +178,7 @@ class Main extends Component {
               <PrivateRoute exact path="/mycourses/:dishId" component={favWithId} />
               <SecureRoute exact path="/signup" component={()=> <Signup resetFeedbackForm={this.props.resetFeedbackForm} SignupUser={this.props.SignupUser} />}/>
               <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
-              <AdminRoute path="/admin" component={admin} />
+              <AdminRoute exact path="/admin" component={()=> <Admin resetFeedbackForm={this.props.resetFeedbackForm} sendFile={this.props.sendFile} />}/>
               <Route component={Four} />
             </Switch>
             </FadeTransform>

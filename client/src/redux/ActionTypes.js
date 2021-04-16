@@ -27,3 +27,6 @@ export const ADD_FAVORITES = 'ADD_FAVORITES';
 export const USERS_LOADING = 'USERS_LOADING';
 export const USERS_FAILD = 'USERS_FAILD';
 export const ADD_USER ='ADD_USER';
+export const FILE_REQUEST='FILE_REQUEST';
+export const FILE_SUCCESS='FILE_SUCCESS';
+export const FILE_ERROR='FILE_ERROR';

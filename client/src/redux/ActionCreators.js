@@ -423,6 +423,57 @@ export const logoutUser = () => (dispatch) => {
     dispatch(favoritesFailed("Error 401: Unauthorized"));
     dispatch(receiveLogout())
 }
+//posting file
+export const requestFile = (creds) => {
+    return {
+        type: ActionTypes.FILE_REQUEST,
+        creds
+    }
+}
+  
+export const receiveFile = (response) => {
+    return {
+        type: ActionTypes.FILE_SUCCESS,
+        token: response.token
+    }
+}
+  
+export const fileError = (message) => {
+    return {
+        type: ActionTypes.FILE_ERROR,
+        message
+    }
+}
+
+export const sendFile = (feedback) => (dispatch) => {
+            const bearer = 'Bearer ' + localStorage.getItem('token');
+    return fetch(baseUrl + 'imageUpload', {
+        method: "POST",
+        body: JSON.stringify(feedback),
+        headers: {
+            'Authorization': bearer,
+            "key":"imageFile",
+          "Content-Type": "multipart/form-data",
+        },
+        credentials: "same-origin"
+    })
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          var error = new Error('Error ' + response.status + ': ' + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      },
+      error => {
+            throw error;
+      })
+    .then(response => response.json())
+    .then(response => { console.log('Feedback', response); alert(JSON.stringify(response)); })
+    .catch(error =>  { console.log('Feedback', error.message); alert(error.message); });
+};
+
 
 export const postFavorite = (dishId) => (dispatch) => {
 
