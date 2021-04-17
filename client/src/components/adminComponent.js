@@ -34,8 +34,7 @@ class Contact extends Component {
                                 </Col>
                             </Row>
                         </Form>
-                    
-                    <iframe src="https://developer-course-s.herokuapp.com/admin" title='admin' width='100%' height="900px" ></iframe>
+                    <div className="container"><a href='https://developer-course-s.herokuapp.com/admin' target='_blank' rel="noopener noreferrer" ><h2>Visit admin section</h2></a></div>
                 </div>
         );
     }
