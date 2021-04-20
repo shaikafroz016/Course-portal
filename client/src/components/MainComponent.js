@@ -18,6 +18,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Four from './404/404';
 import Admin from './adminComponent';
 import { FadeTransform } from 'react-animation-components';
+import ScrollToTop from './Scrolltop'
 
 const mapStateToProps = state => {
     return {
@@ -167,6 +168,7 @@ class Main extends Component {
             fadeProps={{
                 enterOpacity: 100,
             }}>
+            <ScrollToTop>
             <Switch>
               <Route exact path="/" component={() => <Home dishes={this.props.dishes} />} />
               <Route path="/home" component={() => <Home dishes={this.props.dishes} />} />
@@ -181,6 +183,7 @@ class Main extends Component {
               <AdminRoute exact path="/admin" component={()=> <Admin resetFeedbackForm={this.props.resetFeedbackForm} sendFile={this.props.sendFile} />}/>
               <Route component={Four} />
             </Switch>
+            </ScrollToTop>
             </FadeTransform>
           </CSSTransition>
         </TransitionGroup>

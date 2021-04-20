@@ -170,20 +170,6 @@ class Header extends Component {
                                 </NavItem>
                             </Nav>
                             <Nav  navbar>
-                                <NavItem>
-                                    { !this.props.auth.isAuthenticated ?
-                                        <Button outline color="secondary" onClick={this.toggleModal1}>
-                                           Faculty Login
-                                            {this.props.auth.isFetching ?
-                                                <span className="fa fa-spinner fa-pulse fa-fw"></span>
-                                                : null
-                                            }
-                                        </Button>
-                                        :
-                                        null
-                                    }
-
-                                </NavItem>
                             </Nav>
                             
                         </Collapse>
