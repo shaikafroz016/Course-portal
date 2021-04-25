@@ -10,6 +10,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Instructor from './InstructorComponent';
 import Signup from './SignupComponent';
+import facultyComponent from'./faculty';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postComment, postFeedback, fetchDishes, fetchComments,fetchUrls, fetchPromos, fetchLeaders, loginUser,SignupUser,sendFile,fetchUsers, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
@@ -131,7 +132,7 @@ class Main extends Component {
 
     const SecureRoute = ({ component: Component, ...rest }) => (
         <Route {...rest} render={(props) => (
-        this.props.auth.isAdmin
+        this.props.auth.isAuthenticated
           ? <Component {...props} />
           : <Redirect to={{
               pathname: '/home',
@@ -142,7 +143,7 @@ class Main extends Component {
 
     const AdminRoute = ({ component: Component, ...rest }) => (
       <Route {...rest} render={(props) => (
-        this.props.auth.isAuthenticated && this.props.auth.isAdmin
+        this.props.auth.isAdmin & this.props.auth.isAuthenticated
           ? <Component {...props} />
           : <Redirect to={{
               pathname: '/home',
@@ -181,6 +182,7 @@ class Main extends Component {
               <SecureRoute exact path="/signup" component={()=> <Signup resetFeedbackForm={this.props.resetFeedbackForm} SignupUser={this.props.SignupUser} />}/>
               <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
               <AdminRoute exact path="/admin" component={()=> <Admin resetFeedbackForm={this.props.resetFeedbackForm} sendFile={this.props.sendFile} />}/>
+              <AdminRoute exact path="/faculty" component={facultyComponent}/>
               <Route component={Four} />
             </Switch>
             </ScrollToTop>

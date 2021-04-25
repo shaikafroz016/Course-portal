@@ -58,18 +58,19 @@ export const fetchUsers = () => (dispatch) => {
     })
     .then(response => {
         if (response.ok) {
-            return response;
+            return true;
         }
         else {
-            var error = new Error('Error ' + response.status + ': ' + response.statusText);
+           /* var error = new Error('Error ' + response.status + ': ' + response.statusText);
             error.response = response;
-            throw error;
+            throw error;*/
+            return false
         }
     },
-    error => {
+   /* error => {
         var errmess = new Error(error.message);
         throw errmess;
-    })
+    }*/)
     .then(response => response.json())
     .then(users => dispatch(addUsers(users)))
     .catch(error => dispatch(usersfaield(error.message)));
