@@ -7,6 +7,7 @@ import { FadeTransform } from 'react-animation-components';
 import MyLeaderBoardAd from './addcomponent'
 import Fade from 'react-reveal/Fade';
 import Jumbot from './Jumbotron';
+import CardBody from 'reactstrap/lib/CardBody';
 
 
 const ColoredLine = ({ color }) => (
@@ -31,13 +32,14 @@ const ColoredLine = ({ color }) => (
                 enterOpacity: 100,
             }}><Fade left>
            
-                <Card className="shadow-lg p-3 mb-5 bg-white rounded">
-                    <CardImg height="200px" src={baseUrl + dish.image} alt={dish.name} />
-                        <h4><CardTitle>{dish.name}</CardTitle></h4>
+                <Card className="shadow-lg">
+                    <CardImg height="300px" src={baseUrl + dish.image} alt={dish.name} />
+                        <CardBody><h3><CardTitle>{dish.name}</CardTitle></h3>
                 <ColoredLine color="black" />
                 <Link to={`/Courses/${dish._id}`} >
                 <Button outline color="primary">Go To Course</Button>
                 </Link>
+                </CardBody>
                 </Card>
                 </Fade>
             </FadeTransform>

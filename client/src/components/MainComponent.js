@@ -81,8 +81,8 @@ class Main extends Component {
           commentsErrMess={this.props.comments.errMess}
           postComment={this.props.postComment}
           favorite={
-            this.props.favorites.favorites ? 
-            this.props.favorites.favorites.dishes.some((dish) => dish._id === match.params.dishId)
+            this.props.favorites.enrolled ? 
+            this.props.favorites.enrolled.enrolled.some((dish) => dish._id === match.params.dishId)
             : 
             null
           }
@@ -100,7 +100,6 @@ class Main extends Component {
           />
       );
     }
-
     const favWithId = ({match}) => {
       return(
         this.props.auth.isAuthenticated

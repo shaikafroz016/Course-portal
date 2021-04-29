@@ -1,45 +1,44 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader} from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader } from 'reactstrap';
 import { Link } from 'react-router-dom';
-
-
 
 
 function About(props) {
 
     return(
-        <div className="container downc">
+        <div className="container">
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                     <BreadcrumbItem active>About Us</BreadcrumbItem>
                 </Breadcrumb>
-                <div className="col-12">
+                <div className="col-12 text-black">
                     <h3>About Us</h3>
                     <hr />
                 </div>                
             </div>
             <div className="row row-content">
-                <div className="col-12 col-md-6 ">
+                <div className="col-12 col-md-6 text-black">
                     <h2>Our History</h2>
-                    <p>Courser-S is a world-wide online learning platform founded in 2012 by Stanford computer science professors Andrew Ng and Daphne Koller that offers massive open online courses (MOOC), specializations, and degrees.
-                        Courser-S works with universities and other organizations to offer online courses, specializations, and degrees in a variety of subjects, such as engineering, data science, machine learning, mathematics, business, computer science, digital marketing, humanities, medicine, biology, social sciences, and others.
-                    </p>
-                    <p>As of December 2019, the total number of partners is more than 200 across 29 countries. Course-S mainly works with universities and colleges, but also with corporates and governments. University partners include University of São Paulo in Brazil,[9] University of London[10] in the UK, Indian School of Business of India,[11] Yonsei University in Korea,[12] and institutions like Yale[13], University of Illinois and University of Pennsylvania.[14]</p>
+                    <p>Swathi Institute of Technology and Sciences an umbrella institute under Swathi group was established in 2009 with the inspiration of Late Prof. <em>Dr. Mrs. D. Swathi</em>, a visionary and teacher par excellence. Her inspiration and vision is guiding us to climb new heights in the field of education.Hence we are one of the best Engineering colleges in Andhra Pradesh
+Within a short span of time, swathi group garnered reputation of being a premier engineering college (Among top 10 colleges affiliated to <em>Osmania University</em>) committed to train and produce intellectual and ethical professionals capable of keeping pace with evergrowing demands in the global village by disseminating the knowledge and rendering skills for economic empowerment.
+</p>
                 </div>
                 <div className="col-12 col-md-5">
                     <Card>
-                        <CardHeader className="bg-primary ">Facts At a Glance</CardHeader>
+                        <CardHeader className="bg-primary text-white">Swathi Institute of Technology and Sciences</CardHeader>
                         <CardBody>
                             <dl className="row p-1">
-                                <dt className="col-6">Started</dt>
-                                <dd className="col-6">3 Feb. 2013</dd>
-                                <dt className="col-6">Major Stake Holder</dt>
-                                <dd className="col-6">HK Fine Foods Inc.</dd>
-                                <dt className="col-6">Last Year's Turnover</dt>
-                                <dd className="col-6">$1,250,375</dd>
-                                <dt className="col-6">Employees</dt>
-                                <dd className="col-6">40</dd>
+                                <dt class="col-6">Motto</dt>
+                                <dd class="col-6">Lighted to Enlighten. </dd>
+                                <dt class="col-6">Type</dt>
+                                <dd class="col-6">Private Institution</dd>
+                                <dt class="col-6">Established</dt>
+                                <dd class="col-6">2009</dd>
+                                <dt class="col-6">Affiliation</dt>
+                                <dd class="col-6">Osmania University</dd>
+                                <dt class="col-6">Website</dt>
+                                <dd class="col-6"><a href="http://www.swathistanfordcolleges.in/about-college.php">Visit College Website</a></dd>
                             </dl>
                         </CardBody>
                     </Card>
@@ -48,10 +47,9 @@ function About(props) {
                     <Card>
                         <CardBody className="bg-faded">
                             <blockquote className="blockquote">
-                                <p className="mb-0">Don’t worry about doing things perfectly. If you do, you’ll never get things done.</p>
-                                <footer className="blockquote-footer">Yogi Berra,
-                                <cite title="Source Title">The Wit and Wisdom of Yogi Berra,
-                                    P. Pepe, Diversion Books, 2014</cite>
+                                <p className="mb-0">Leadership and learning are indispensable to each other</p>
+                                <footer className="blockquote-footer">John F. Kennedy
+                                <cite title="Source Title"></cite>
                                 </footer>
                             </blockquote>
                         </CardBody>
@@ -62,4 +60,4 @@ function About(props) {
     );
 }
 
-export default About;    
+export default About;

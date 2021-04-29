@@ -24,7 +24,7 @@ const ColoredLine = ({ color }) => (
     function RenderDish({dish, favorite, postFavorite}) {
             return(
                 <div className="row">
-                <div className="col-12 col-md-5 m-1">
+                <div className="col-12 col-md-5 ">
                     <FadeTransform in 
                         transformProps={{
                             exitTransform: 'scale(0.5) translateY(-50%)'
@@ -33,7 +33,7 @@ const ColoredLine = ({ color }) => (
                             <CardImg top src={baseUrl + dish.image} alt={dish.name} />
                             <CardBody>
                                 <Button outline color="primary" onClick={() => favorite ? console.log('Already Enrolled') : postFavorite(dish._id)}>
-                                    {favorite ?
+                                    {dish.favorite ?
                                     <div>
                                         <Link to={`/mycourses/${dish._id}`} >
                                             <span className="text-dark">Go To Course</span>
@@ -47,7 +47,7 @@ const ColoredLine = ({ color }) => (
                         </Card>
                     </FadeTransform>
                 </div>
-                <div className="col-12 col-md-5 m-1">
+                <div className="col-12 col-md-5 ">
                     <Fade left>
                     <Card>
                         <CardBody>
@@ -65,7 +65,7 @@ const ColoredLine = ({ color }) => (
     function RenderComments({comments, postComment, dishId}) {
         if (comments != null)
             return(
-                <div className="col-12 col-md-5 m-1">
+                <div className="col-12 col-md-5 ">
                     <h4>Comments</h4>
                     <ul className="list-unstyled ">
                         <Stagger in>

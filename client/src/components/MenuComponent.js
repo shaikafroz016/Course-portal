@@ -30,7 +30,7 @@ import Fade from 'react-reveal/Fade';
 
         const menu = props.dishes.dishes.map((dish) => {
             return (
-                <div key={dish._id} className="col-12 col-md-6  sks">
+                <div key={dish._id} className="col-12 col-md-4  sks">
                     <RenderMenuItem dish={dish} />
                 </div>
             );

@@ -32,8 +32,8 @@ class Jumbot extends Component {
                     <div className="container downc">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
-                                <h1 >Course-S</h1>
-                                <h4 >The online Course portal for learner to grab Courses for free!</h4>
+                                <h1 >SITS Course Portal System</h1>
+                                <h4 >A high achieving multicultural community for learning.</h4>
                                 <p >Happy Learning</p>
                         </div>
                         </div>

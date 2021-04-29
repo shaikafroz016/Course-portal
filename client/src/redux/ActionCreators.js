@@ -92,7 +92,7 @@ export const addUsers = (users) => ({
 export const fetchDishes = () => (dispatch) => {
     dispatch(dishesLoading(true));
 
-    return fetch(baseUrl + 'dishes')
+    return fetch(baseUrl + 'courses')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -108,7 +108,7 @@ export const fetchDishes = () => (dispatch) => {
             throw errmess;
         })
         .then(response => response.json())
-        .then(dishes => dispatch(addDishes(dishes)))
+        .then(courses => dispatch(addDishes(courses)))
         .catch(error => dispatch(dishesFailed(error.message)));
 }
 
@@ -121,9 +121,9 @@ export const dishesFailed = (errmess) => ({
     payload: errmess
 });
 
-export const addDishes = (dishes) => ({
+export const addDishes = (courses) => ({
     type: ActionTypes.ADD_DISHES,
-    payload: dishes
+    payload: courses
 });
 
 export const fetchComments = () => (dispatch) => {
