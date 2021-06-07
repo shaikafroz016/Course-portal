@@ -132,11 +132,12 @@ class Main extends Component {
     const SecureRoute = ({ component: Component, ...rest }) => (
         <Route {...rest} render={(props) => (
         this.props.auth.isAuthenticated
-          ? <Component {...props} />
-          : <Redirect to={{
+          ? <Redirect to={{
               pathname: '/home',
               state: { from: props.location }
             }} />
+          : 
+            <Component {...props} />
       )} />
     );
 

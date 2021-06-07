@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg,  Breadcrumb, BreadcrumbItem, CardTitle ,CardBody,CardText} from 'reactstrap';
+import { Card, CardImg,  Breadcrumb, BreadcrumbItem ,CardBody,CardText} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
@@ -15,10 +15,9 @@ import Fade from 'react-reveal/Fade';
                     <CardImg  height="300px" src={baseUrl + dish.image} alt={dish.name} />                    
                 </Link>
                 <CardBody>
-                            <h3><CardTitle>{dish.name}</CardTitle></h3>
-                            <CardText>
+                            <CardText className='readmore' >
                                 <ReadMoreReact  text={dish.description}
-                                 readMoreText="click here to read more"/>
+                                  readMoreText="click here to read more"/>
                                 </CardText>
                         </CardBody>
                     </Card>
