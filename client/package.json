@@ -17,6 +17,7 @@
     "react-bootstrap": "^1.0.1",
     "react-content-loader": "^6.0.3",
     "react-dom": "^16.13.1",
+    "react-icons": "^4.2.0",
     "react-loadingg": "^1.7.2",
     "react-popper": "0.9.2",
     "react-redux": "5.0.7",
@@ -30,7 +31,8 @@
     "read-more-react": "^1.0.10",
     "redux": "3.7.2",
     "redux-logger": "3.0.6",
-    "redux-thunk": "2.2.0"
+    "redux-thunk": "2.2.0",
+    "styled-components": "^5.3.1"
   },
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",

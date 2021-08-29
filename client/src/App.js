@@ -4,6 +4,8 @@ import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
+import ScrollButton from './components/scrolltotop/ScrollButton';
+
 
 const store = ConfigureStore();
 
@@ -13,11 +15,14 @@ class App extends Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <div className="bo">
+          <div >
             <Main />
+            <ScrollButton />
           </div>
+          
         </BrowserRouter>
       </Provider>
+      
     );
   }
 }
